@@ -1,6 +1,6 @@
 # BookStore
 
-> Bookstore is a web application that allows users to display, add and remove a selected book . This web app is build using React and Redux
+> Bookstore is a web Application that allows users to display, add and remove a selected book. This web app is build using React and Redux
 
 ### App Screenshot 
 <br>
