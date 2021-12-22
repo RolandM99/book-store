@@ -1,25 +1,43 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link,
+} from 'react-router-dom';
+import './index.css';
+import Categories from './components/Categories';
+import Books from './components/Books';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
+
+  render() {
+    return (
+      <Router>
+        <div>
+          <nav className="main-nav">
+            <h1>Bookstore CMS</h1>
+            <ul className="navigation-list">
+              <li>
+                <Link to="/books">BOOKS</Link>
+              </li>
+              <li>
+                <Link to="/categories">CATEGORIES</Link>
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <Routes>
+          <Route path="/books" element={<Books />} />
+          <Route path="/categories" element={<Categories />} />
+        </Routes>
+      </Router>
+    );
+  }
 }
 
 export default App;
