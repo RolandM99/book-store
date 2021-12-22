@@ -1,11 +1,11 @@
-# Math-Magicians
+# BookStore
 
-> Math magicians is a website for all fans of mathematics. It is a Single Page App (SPA) that allows users to make simple calculations and read a random math-related quote.
+> Bookstore is a web application that allows users to display, add and remove a selected book . This web app is build using React and Redux
 
 ### App Screenshot 
 <br>
 
-![screenshot](./screenshot.PNG)
+![screenshot]()
 
 ## Built With
 
@@ -15,12 +15,12 @@
 
 ## Live Demo
 
-[Live link](https://math-magic.netlify.app/)
+[In progress]()
 
 # Getting Started
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-To have the local version of this project in your local PC, first clone the project with: `git clone` https://github.com/RolandM99/math-magicians.git,
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).<br>
+To have the local version of this project in your local PC, first clone the project with: `git clone` https://github.com/RolandM99/book-store.git,
 then run the command `npm install` to update all packages locally.
 
 Others commands:
