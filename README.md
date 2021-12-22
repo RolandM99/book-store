@@ -11,7 +11,7 @@
 
 - Major languages: JAVASCRIPT | HTML | CSS 
 - Major Library: ReactJS
-- Technologies used : Git | Github | Linter | Jest
+- Technologies used : Git | Github | Linter 
 
 ## Live Demo
 
