@@ -7,7 +7,7 @@ import {
 } from 'react-router-dom';
 import './index.css';
 import Categories from './components/Categories';
-import Books from './components/Books';
+import Books from './components/addNewBook';
 
 class App extends React.Component {
   constructor(props) {
