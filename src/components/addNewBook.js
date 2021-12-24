@@ -1,56 +1,26 @@
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { v4 as uuidv } from 'uuid';
-import { addBook, removeBook } from '../redux/books/books';
-import store from '../redux/configureStore';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+// import { v4 as uuidv } from 'uuid';
+import { retrieveAllBooks } from '../redux/books/books';
+// import store from '../redux/configureStore';
 import BookForm from './inputBook';
 import Books from './Books';
 
 const BookList = () => {
   const dispatch = useDispatch();
 
-  const [books, setBooks] = useState(store.getState().bookReducer);
+  const { booksReducer } = useSelector((state) => state);
 
-  const submitBook = ({ title, author }) => {
-    const newBook = {
-      id: uuidv(), // make sure it's unique
-      title,
-      author,
-    };
-
-    dispatch(addBook(newBook));
-
-    localStorage.setItem(
-      'BooksList',
-      JSON.stringify(store.getState().booksReducer),
-    );
-    setBooks(JSON.parse(localStorage.getItem('BooksList')));
-  };
-
-  const deleteBook = (book) => {
-    dispatch(removeBook(book));
-
-    localStorage.setItem(
-      'BooksList',
-      JSON.stringify(store.getState().booksReducer),
-    );
-    setBooks(JSON.parse(localStorage.getItem('BooksList')));
-  };
+  useEffect(() => {
+    dispatch(retrieveAllBooks());
+  }, [dispatch]);
 
   return (
-    <div id="book-page-container">
-      <div id="books-container">
-        {books?.map((book) => (
-          <Books
-            id={book.id}
-            key={book.id}
-            title={book.title}
-            author={book.author}
-            deleteBook={() => deleteBook(book)}
-          />
-        ))}
-      </div>
-      <BookForm addBook={submitBook} />
+    <div>
+      {booksReducer.map((book) => (
+        <Books key={book.item_id} book={book} />
+      ))}
+      <BookForm />
     </div>
   );
 };

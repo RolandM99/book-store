@@ -1,32 +1,33 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
+import { useDispatch } from 'react-redux';
+// import PropTypes from 'prop-types';
+import { addBook } from '../redux/books/books';
 
-const BookForm = (props) => {
-  const [bookForm, setBookForm] = useState({
-    title: '',
-    author: '',
-  });
+const { v4: uuid } = require('uuid');
 
-  const onChange = (e) => {
-    setBookForm({
-      ...bookForm,
-      [e.target.name]: e.target.value,
-    });
+const BookForm = () => {
+  const dispatch = useDispatch();
+  const [title, setBookForm] = useState('');
+  const [category, setBookCategory] = useState('');
+
+  const onChangeBook = (e) => {
+    setBookForm(e.target.value);
+  };
+
+  const onChangeCategory = (e) => {
+    setBookCategory(e.target.value);
   };
 
   const handleBtn = (e) => {
+    const handBook = {
+      item_id: uuid(),
+      title,
+      category,
+    };
+    dispatch(addBook(handBook));
     e.preventDefault();
-    const { addBook } = props;
-    if (bookForm.title === '' || bookForm.author === '') {
-      console.log('Fill all fields');
-    } else {
-      // formValid(bookForm);
-      addBook(bookForm);
-      setBookForm({
-        title: '',
-        author: '',
-      });
-    }
+    setBookForm('');
+    setBookCategory('');
   };
 
   return (
@@ -38,16 +39,16 @@ const BookForm = (props) => {
           id="input-book-title"
           name="title"
           placeholder="Book Title"
-          value={bookForm.title}
-          onChange={onChange}
+          value={title}
+          onChange={onChangeBook}
         />
         <input
           type="text"
-          id="input-book-author"
+          id="input-book-category"
           name="author"
-          placeholder="Book Author"
-          value={bookForm.author}
-          onChange={onChange}
+          placeholder="Book category"
+          value={category}
+          onChange={onChangeCategory}
         />
 
         <button id="add-btn" type="submit" onClick={handleBtn}>
@@ -56,10 +57,6 @@ const BookForm = (props) => {
       </form>
     </div>
   );
-};
-
-BookForm.propTypes = {
-  addBook: PropTypes.func.isRequired,
 };
 
 export default BookForm;
