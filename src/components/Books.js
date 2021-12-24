@@ -1,42 +1,20 @@
 import React from 'react';
+import Proptypes from 'prop-types';
 
-const Books = () => (
-  <div className="main-container">
-    <div>
-      <ul>
-        <li>
-          Book 1
-          <button type="button">Remove</button>
-        </li>
-        <li>
-          Book 2
-          <button type="button">Remove</button>
-        </li>
-        <li>
-          Book 3
-          <button type="button">Remove</button>
-        </li>
-      </ul>
-    </div>
-
-    <div className="books-form">
-      <form>
-        <input
-          type="text"
-          className="book-title"
-          placeholder="Book title"
-          required
-        />
-        <select id="category">
-          <option disabled selected value>Category</option>
-          <option>Action</option>
-          <option>Science Fiction</option>
-          <option>Computer Science</option>
-        </select>
-        <button type="button">Submit</button>
-      </form>
-    </div>
-  </div>
+const Books = ({ title, author, deleteBook }) => (
+  <li>
+    <p className="book-title">{title}</p>
+    <p className="book-author">{author}</p>
+    <button type="submit" className="remove-btn" onClick={deleteBook}>
+      REMOVE
+    </button>
+  </li>
 );
+
+Books.propTypes = {
+  title: Proptypes.string.isRequired,
+  author: Proptypes.string.isRequired,
+  deleteBook: Proptypes.func.isRequired,
+};
 
 export default Books;
