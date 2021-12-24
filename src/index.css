@@ -1,4 +1,5 @@
 body {
+  padding: 0;
   margin: 0;
   font-family:
     -apple-system,
@@ -24,4 +25,15 @@ code {
     Consolas,
     'Courier New',
     monospace;
+}
+
+.main-nav {
+  display: flex;
+  justify-content: space-around;
+}
+
+.navigation-list {
+  display: flex;
+  list-style: none;
+  gap: 20px;
 }
