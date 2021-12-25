@@ -44,8 +44,8 @@ const AddBook = () => {
     };
 
     dispatch(addBook(newBook));
-    setTitle('');
-    setCategory('');
+    setTitle(`${title}`);
+    setCategory(`${category}`);
   };
 
   return (
@@ -55,7 +55,6 @@ const AddBook = () => {
         <form action="/" onSubmit={Submit}>
           <div>
             <div>
-              {' '}
               <input
                 type="text"
                 value={title}

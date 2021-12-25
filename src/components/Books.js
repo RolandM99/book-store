@@ -41,7 +41,7 @@ const Books = (props) => {
 Books.propTypes = {
   title: Proptypes.string.isRequired,
   id: Proptypes.string.isRequired,
-  category: Proptypes.func.isRequired,
+  category: Proptypes.string.isRequired,
 };
 
 export default Books;

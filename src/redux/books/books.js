@@ -7,6 +7,23 @@ const getUrl = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/books
 
 const initialState = [];
 
+export const getBooks = () => async (dispatch) => {
+  const result = await axios.get(getUrl);
+  const mybook = result.data;
+  const allData = Object.entries(mybook);
+  const retrieveBooks = [];
+  allData.forEach(([key, book]) => {
+    const id = key;
+    const { title, category } = book[0];
+    retrieveBooks.push({ id, title, category });
+  });
+
+  dispatch({
+    type: GET_BOOKS,
+    retrieveBooks,
+  });
+};
+
 export const addBook = ({ id, title, category }) => async (dispatch) => {
   const input = await axios.post(getUrl, {
     item_id: id,
@@ -34,23 +51,6 @@ export const removeBook = (id) => async (dispatch) => {
       id,
     });
   }
-};
-
-export const getBooks = () => async (dispatch) => {
-  const result = await axios.get(getUrl);
-  const mybook = result.data;
-  const allData = Object.entries(mybook);
-  const retrieveBooks = [];
-  allData.forEach(([key, book]) => {
-    const id = key;
-    const { title, category } = book[0];
-    retrieveBooks.push({ id, title, category });
-  });
-
-  dispatch({
-    type: GET_BOOKS,
-    retrieveBooks,
-  });
 };
 
 const reducer = (state = initialState, action) => {
