@@ -30,7 +30,7 @@ export const addBook = ({ id, title, category }) => async (dispatch) => {
     title,
     category,
   });
-  if (input.data === 'created') {
+  if (input.data === 'status: created') {
     dispatch({
       type: ADD_BOOK,
       book: { id, title, category },
