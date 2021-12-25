@@ -20,17 +20,24 @@ const Books = (props) => {
       <div id="book-page-container">
         <ul id="books-container">
           <li>
-            <div>
-              <p className="book-category">{category}</p>
+            <div className="container-1">
+              <div>
+                <p className="book-category">{category}</p>
+              </div>
+              <div>
+                <p className="book-title">{title}</p>
+              </div>
+              <div className="commentaire">
+                <div className="commentaire">Comments</div>
+                <button type="submit" className="remove-btn" onClick={() => deleteBook(id)}>
+                  REMOVE
+                </button>
+                <div className="edit-book">Edit</div>
+              </div>
             </div>
-            <div>
-              <p className="book-title">{title}</p>
+            <div className="container-2">
+              <div className="Oval-2">.</div>
             </div>
-            <div className="commentaire">Comments</div>
-            <button type="submit" className="remove-btn" onClick={() => deleteBook(id)}>
-              REMOVE
-            </button>
-            <div className="edit-book">Edit</div>
           </li>
         </ul>
       </div>
