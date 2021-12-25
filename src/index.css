@@ -74,10 +74,10 @@ h1 {
   margin-top: 20px;
 }
 
-#form-container {
+form {
   margin: 40px 80px 0 80px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
 }
 
 #add-form {

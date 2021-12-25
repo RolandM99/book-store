@@ -7,7 +7,7 @@ import {
 } from 'react-router-dom';
 import './index.css';
 import Categories from './components/Categories';
-import Books from './components/addNewBook';
+import BookForm from './components/inputBook';
 
 class App extends React.Component {
   constructor(props) {
@@ -32,7 +32,7 @@ class App extends React.Component {
           </nav>
         </div>
         <Routes>
-          <Route path="/books" element={<Books />} />
+          <Route path="/books" element={<BookForm />} />
           <Route path="/categories" element={<Categories />} />
         </Routes>
       </Router>
