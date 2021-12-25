@@ -1,58 +1,94 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { v4 as uuidv } from 'uuid';
-import { addBook, removeBook } from '../redux/books/books';
-import store from '../redux/configureStore';
-import BookForm from './inputBook';
-import Books from './Books';
+import { addBook } from '../redux/books/books';
+// import store from '../redux/configureStore';
+// import BookForm from './inputBook';
+// import Books from './Books';
 
-const BookList = () => {
+const AddBook = () => {
+  const categories = [
+    {
+      id: 1,
+      name: 'Action',
+    },
+    {
+      id: 2,
+      name: 'Science fiction',
+    },
+    {
+      id: 3,
+      name: 'Computer Science',
+    },
+  ];
+
   const dispatch = useDispatch();
+  const [title, setTitle] = useState('');
+  const [category, setCategory] = useState('');
 
-  const [books, setBooks] = useState(store.getState().bookReducer);
+  const lblBookTitleChanged = (e) => {
+    e.preventDefault();
+    setTitle(e.target.value);
+  };
 
-  const submitBook = ({ title, author }) => {
+  const chkCategoriesChanged = (e) => {
+    e.preventDefault();
+    setCategory(e.target.value);
+  };
+
+  const Submit = () => {
     const newBook = {
-      id: uuidv(), // make sure it's unique
+      id: uuidv(),
       title,
-      author,
+      category,
     };
 
     dispatch(addBook(newBook));
-
-    localStorage.setItem(
-      'BooksList',
-      JSON.stringify(store.getState().booksReducer),
-    );
-    setBooks(JSON.parse(localStorage.getItem('BooksList')));
-  };
-
-  const deleteBook = (book) => {
-    dispatch(removeBook(book));
-
-    localStorage.setItem(
-      'BooksList',
-      JSON.stringify(store.getState().booksReducer),
-    );
-    setBooks(JSON.parse(localStorage.getItem('BooksList')));
+    setTitle('');
+    setCategory('');
   };
 
   return (
-    <div id="book-page-container">
-      <div id="books-container">
-        {books?.map((book) => (
-          <Books
-            id={book.id}
-            key={book.id}
-            title={book.title}
-            author={book.author}
-            deleteBook={() => deleteBook(book)}
-          />
-        ))}
+    <>
+      <div className="allform-container">
+        <div> ADD NEW BOOK</div>
+        <form action="/" onSubmit={Submit}>
+          <div>
+            <div>
+              {' '}
+              <input
+                type="text"
+                value={title}
+                placeholder="Book title"
+                id="book-title"
+                onChange={lblBookTitleChanged}
+                required
+              />
+            </div>
+          </div>
+          <div>
+            <div>
+              <select
+                id="chose-category"
+                placeholder="Category"
+                value={category}
+                onChange={chkCategoriesChanged}
+                required
+              >
+                <option value="" disabled hidden>Category</option>
+                { categories.map((items) => (
+                  <option key={items.id} value={items.name}>{items.name}</option>
+                ))}
+              </select>
+            </div>
+          </div>
+          <div>
+            <button type="submit" value="Submit" onClick={Submit}>Add Book</button>
+          </div>
+        </form>
       </div>
-      <BookForm addBook={submitBook} />
-    </div>
+    </>
   );
 };
 
-export default BookList;
+export default AddBook;
