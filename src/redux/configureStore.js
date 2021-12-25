@@ -4,6 +4,8 @@ import {
   applyMiddleware,
 } from 'redux';
 import logger from 'redux-logger';
+import thunk from 'redux-thunk';
+import { composeWithDevTools } from 'redux-devtools-extension';
 import booksReducer from './books/books';
 
 const reducer = combineReducers({
@@ -12,8 +14,9 @@ const reducer = combineReducers({
 });
 
 const store = createStore(
-  reducer,
-  applyMiddleware(logger),
+  reducer, composeWithDevTools(
+    applyMiddleware(logger, thunk),
+  ),
 );
 
 export default store;
