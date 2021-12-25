@@ -2,9 +2,6 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { v4 as uuidv } from 'uuid';
 import { addBook } from '../redux/books/books';
-// import store from '../redux/configureStore';
-// import BookForm from './inputBook';
-// import Books from './Books';
 
 const AddBook = () => {
   const categories = [

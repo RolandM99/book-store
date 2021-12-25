@@ -23,7 +23,7 @@ class App extends React.Component {
             <h1>Bookstore CMS</h1>
             <ul className="navigation-list">
               <li>
-                <Link to="/">BOOKS</Link>
+                <Link to="/books">BOOKS</Link>
               </li>
               <li>
                 <Link to="/categories">CATEGORIES</Link>
@@ -32,7 +32,7 @@ class App extends React.Component {
           </nav>
         </div>
         <Routes>
-          <Route path="/" element={<BookForm />} />
+          <Route path="/books" element={<BookForm />} />
           <Route path="/categories" element={<Categories />} />
         </Routes>
       </Router>
