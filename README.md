@@ -52,7 +52,7 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 - GitHub: [Rolandm99](https://github.com/RolandM99)
 - Twitter: [@Manfulmwez](https://twitter.com/ManfulMwez)
-- LinkedIn: [Roland N. MWEZE](https://www.linkedin.com/in/roland-n-mweze-8b1045189/)
+- LinkedIn: [Roland N. MWEZE](https://www.linkedin.com/in/roland-mweze/)
 
 ## 🤝 Contributing
 
