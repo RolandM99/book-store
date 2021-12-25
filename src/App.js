@@ -18,7 +18,7 @@ class App extends React.Component {
   render() {
     return (
       <Router>
-        <div>
+        <div className="nav-bar">
           <nav className="main-nav">
             <h1>Bookstore CMS</h1>
             <ul className="navigation-list">
