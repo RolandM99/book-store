@@ -9,8 +9,11 @@
 
 ## Built With
 
-- Major languages: JAVASCRIPT | HTML | CSS 
-- Major Library: ReactJS
+- React
+- JavaScript
+- HTML
+- CSS
+
 - Technologies used : Git | Github | Linter 
 
 ## Live Demo
