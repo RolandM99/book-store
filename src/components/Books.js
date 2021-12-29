@@ -11,6 +11,7 @@ const Books = (props) => {
     id,
     title,
     category,
+    author = 'Suzanna Colins',
   } = props;
 
   const deleteBook = (book) => {
@@ -31,6 +32,9 @@ const Books = (props) => {
                 </div>
                 <div>
                   <p className="book-title">{title}</p>
+                </div>
+                <div>
+                  <p className="book-author">{author}</p>
                 </div>
                 <div className="commentaire">
                   <div className="comment">Comments</div>
@@ -73,6 +77,7 @@ Books.propTypes = {
   title: Proptypes.string.isRequired,
   id: Proptypes.string.isRequired,
   category: Proptypes.string.isRequired,
+  author: Proptypes.isRequired,
 };
 
 export default Books;
