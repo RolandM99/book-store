@@ -47,10 +47,11 @@ const AddBook = () => {
 
   return (
     <>
+      <hr />
       <div className="allform-container">
         <div className="form-title"> ADD NEW BOOK</div>
         <form action="/" onSubmit={Submit}>
-          <div>
+          <div className="b-title">
             <div>
               <input
                 type="text"
@@ -62,7 +63,7 @@ const AddBook = () => {
               />
             </div>
           </div>
-          <div>
+          <div className="b-category">
             <div>
               <select
                 id="chose-category"
