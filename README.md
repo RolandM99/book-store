@@ -18,7 +18,7 @@
 
 ## Live Demo
 
-[In progress]()
+[Live Link](https://mabookstore.netlify.app/books)
 
 # Getting Started
 
