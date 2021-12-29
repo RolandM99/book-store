@@ -5,7 +5,7 @@
 ### App Screenshot 
 <br>
 
-![screenshot](./screenshot.PNG)
+![screenshot]()
 
 ## Built With
 

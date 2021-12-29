@@ -48,7 +48,7 @@ const AddBook = () => {
   return (
     <>
       <div className="allform-container">
-        <div className="form-title"> ADD NEW BOOK</div>
+        <div> ADD NEW BOOK</div>
         <form action="/" onSubmit={Submit}>
           <div>
             <div>
@@ -79,7 +79,7 @@ const AddBook = () => {
             </div>
           </div>
           <div>
-            <button id="add-btn" type="submit" value="Submit" onClick={Submit}>Add Book</button>
+            <button type="submit" value="Submit" onClick={Submit}>Add Book</button>
           </div>
         </form>
       </div>
